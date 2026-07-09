@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSpark Account Dashboard</title>
+    <link rel="stylesheet" href="duodash.css">
+</head>
+<body>
+    <div class="dashboard-shell">
+        <aside class="sidebar">
+            <a class="brand" href="account-dashboard.html" aria-label="EduSpark home">
+                <span class="brand-mark">E</span>
+                <span>EduSpark</span>
+            </a>
+
+            <nav class="side-nav" aria-label="Dashboard navigation">
+                <a class="nav-item active" href="account-dashboard.html">
+                    <span class="nav-icon">H</span>
+                    <span>Home</span>
+                </a>
+                <a class="nav-item" href="subject-materials.html">
+                    <span class="nav-icon">L</span>
+                    <span>Lessons</span>
+                </a>
+                <a class="nav-item" href="practice-exercises.html">
+                    <span class="nav-icon">P</span>
+                    <span>Practice</span>
+                </a>
+                <a class="nav-item" href="#leaderboard-heading">
+                    <span class="nav-icon">R</span>
+                    <span>Ranking</span>
+                </a>
+                <a class="nav-item" href="#">
+                    <span class="nav-icon">S</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="dashboard">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">Learning account</p>
+                    <h1>Welcome back, Alex</h1>
+                </div>
+                <div class="top-actions">
+                    <button class="icon-button" type="button" aria-label="Notifications">!</button>
+                    <div class="profile-chip" aria-label="Account profile">
+                        <span class="profile-avatar">A</span>
+                        <span>Level 12</span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="hero-panel" aria-label="Daily practice summary">
+                <div class="hero-copy">
+                    <p class="eyebrow">Today's goal</p>
+                    <h2>Study smarter, compete harder, level up</h2>
+                    <p>Finish one quick lesson, protect your streak, and climb the leaderboard while building your language skills.</p>
+                    <div class="hero-actions">
+                        <a class="primary-button" href="quiz.html">Start quiz</a>
+                        <a class="secondary-button" href="practice-exercises.html">Review words</a>
+                    </div>
+                </div>
+
+                <div class="mascot-card" aria-label="Mascot progress">
+                    <div class="mascot">
+                        <span class="mascot-eye left"></span>
+                        <span class="mascot-eye right"></span>
+                        <span class="mascot-beak"></span>
+                        <span class="mascot-wing left"></span>
+                        <span class="mascot-wing right"></span>
+                    </div>
+                    <div class="goal-ring">
+                        <span>72%</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="stats-grid" aria-label="Account statistics">
+                <article class="stat-card">
+                    <span class="stat-icon flame">S</span>
+                    <p>Streak</p>
+                    <strong>18 days</strong>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-icon bolt">X</span>
+                    <p>Total XP</p>
+                    <strong>14,820</strong>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-icon gem">G</span>
+                    <p>Gems</p>
+                    <strong>640</strong>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-icon trophy">L</span>
+                    <p>League</p>
+                    <strong>Sapphire</strong>
+                </article>
+            </section>
+
+            <section class="feature-hub" aria-labelledby="feature-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Learning hub</p>
+                        <h2 id="feature-heading">Choose your activity</h2>
+                    </div>
+                </div>
+
+                <div class="feature-map">
+                    <article class="feature-path">
+                        <div class="feature-title">
+                            <span class="feature-arrow"></span>
+                            <div>
+                                <h3>Learning Resources</h3>
+                                <p>Open course notes, slides, and topic summaries.</p>
+                            </div>
+                        </div>
+                        <a class="branch-link" href="subject-materials.html">
+                            <span class="branch-line"></span>
+                            <span class="feature-arrow"></span>
+                            <span>View Subject Materials</span>
+                        </a>
+                    </article>
+
+                    <article class="feature-path">
+                        <div class="feature-title">
+                            <span class="feature-arrow"></span>
+                            <div>
+                                <h3>Interactive Learning</h3>
+                                <p>Test yourself with quick questions and practice drills.</p>
+                            </div>
+                        </div>
+                        <a class="branch-link" href="quiz.html">
+                            <span class="branch-line"></span>
+                            <span class="feature-arrow"></span>
+                            <span>Take Quiz</span>
+                        </a>
+                        <a class="branch-link" href="practice-exercises.html">
+                            <span class="branch-line"></span>
+                            <span class="feature-arrow"></span>
+                            <span>Answer Practice Exercises</span>
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <div class="content-grid">
+                <section class="panel lessons-panel" aria-labelledby="lesson-heading">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">Learning path</p>
+                            <h2 id="lesson-heading">Next lessons</h2>
+                        </div>
+                        <a href="subject-materials.html">View all</a>
+                    </div>
+
+                    <div class="lesson-list">
+                        <article class="lesson-card current">
+                            <div class="lesson-badge">1</div>
+                            <div>
+                                <h3>Ordering food</h3>
+                                <p>Practice cafe phrases and polite requests.</p>
+                            </div>
+                            <span class="xp-pill">+20 XP</span>
+                        </article>
+
+                        <article class="lesson-card">
+                            <div class="lesson-badge">2</div>
+                            <div>
+                                <h3>Past tense verbs</h3>
+                                <p>Build sentences about yesterday and last week.</p>
+                            </div>
+                            <span class="xp-pill">+25 XP</span>
+                        </article>
+
+                        <article class="lesson-card locked">
+                            <div class="lesson-badge">3</div>
+                            <div>
+                                <h3>Travel check-in</h3>
+                                <p>Unlock after completing two more lessons.</p>
+                            </div>
+                            <span class="xp-pill muted">Locked</span>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="panel" aria-labelledby="leaderboard-heading">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">Sapphire League</p>
+                            <h2 id="leaderboard-heading">Leaderboard</h2>
+                        </div>
+                        <span class="rank-badge">#4</span>
+                    </div>
+
+                    <ol class="leaderboard">
+                        <li>
+                            <span class="place">1</span>
+                            <span>Mia</span>
+                            <strong>980 XP</strong>
+                        </li>
+                        <li>
+                            <span class="place">2</span>
+                            <span>Noah</span>
+                            <strong>870 XP</strong>
+                        </li>
+                        <li>
+                            <span class="place">3</span>
+                            <span>Luna</span>
+                            <strong>820 XP</strong>
+                        </li>
+                        <li class="you">
+                            <span class="place">4</span>
+                            <span>Alex</span>
+                            <strong>790 XP</strong>
+                        </li>
+                    </ol>
+                </section>
+            </div>
+
+            <section class="bottom-grid" aria-label="Progress and badges">
+                <article class="panel weekly-panel">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">Weekly XP</p>
+                            <h2>Practice rhythm</h2>
+                        </div>
+                        <span>620 XP</span>
+                    </div>
+                    <div class="bar-chart" aria-label="Weekly XP chart">
+                        <span style="--height: 38%"><b>Mon</b></span>
+                        <span style="--height: 64%"><b>Tue</b></span>
+                        <span style="--height: 48%"><b>Wed</b></span>
+                        <span style="--height: 82%"><b>Thu</b></span>
+                        <span style="--height: 56%"><b>Fri</b></span>
+                        <span style="--height: 72%"><b>Sat</b></span>
+                        <span style="--height: 44%"><b>Sun</b></span>
+                    </div>
+                </article>
+
+                <article class="panel achievements-panel">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">Collection</p>
+                            <h2>Recent badges</h2>
+                        </div>
+                    </div>
+                    <div class="badge-row">
+                        <span class="achievement green">18</span>
+                        <span class="achievement blue">A+</span>
+                        <span class="achievement gold">5</span>
+                    </div>
+                </article>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
