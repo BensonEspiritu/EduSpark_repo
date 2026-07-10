@@ -55,7 +55,7 @@ Copy the **EduSpark_rep** folder into your XAMPP `htdocs` directory.
 **Windows**
 
 ```text
-C:\xampp\htdocs\EduSpark
+C:\xampp\htdocs\EduSpark_repo/EduSpark
 ```
 
 ### 3. Start XAMPP
