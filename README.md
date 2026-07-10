@@ -79,7 +79,7 @@ Open the **XAMPP Control Panel** and start:
 Open your browser and navigate to:
 
 ```text
-http://localhost/EduSpark_rep/login.php
+http://localhost/EduSpark_repo/EduSpark/login.php
 ```
 
 ---
@@ -89,7 +89,7 @@ http://localhost/EduSpark_rep/login.php
 Open the project folder in **Visual Studio Code**.
 
 ```text
-File → Open Folder → EduSpark_rep
+File → Open Folder → EduSpark/login.php
 ```
 
 > **Note:** PHP files cannot be executed directly from Visual Studio Code. Always access the application through your browser using XAMPP (e.g., `http://localhost/...`).
