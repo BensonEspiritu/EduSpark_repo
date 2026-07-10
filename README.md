@@ -76,3 +76,27 @@ EduSpark is a simple PHP learning dashboard built for XAMPP. It includes user au
 ## 📄 License
 This project was developed for academic purposes.
 
+
+
+## File reference
+
+| File                             | Purpose                                                                                   | Key features                                                                                                                            |
+| -------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `account-dashboard.php`          | Display the main logged-in dashboard with user stats, progress, and navigation.           | loads `app.php`, calls `require_login()`, fetches totals with `db_value()` and `db_all()`, and renders the sidebar with `render_nav()`. |
+| `app.php`                        | Provide shared authentication helpers, database utility functions, and layout components. | defines `db_execute()`, `db_all()`, `db_one()`, `flash()`, `current_user()`, and `ensure_learning_tables()` for app bootstrap.          |
+| `contact-feedback.php`           | Allow users to submit feedback and view recent messages.                                  | validates POST input, inserts into `feedback_messages`, and selects recent entries with `db_all()`.                                     |
+| `subject-materials.php`          | Manage learning materials with create, read, update, and delete actions.                  | routes `$_POST["action"]`, uses prepared SQL for insert/update/delete, and renders editable material cards.                             |
+| `quiz.php`                       | Show quiz questions, submit answers, and record quiz attempts.                            | loops question records, checks `correct_option`, inserts quiz results, and displays recent attempts.                                    |
+| `practice-exercises.php`         | Present practice exercises and save user answer submissions.                              | inserts new submissions into `practice_submissions`, loads exercises, and displays recent answers with a JOIN.                          |
+| `study_tips.php`                 | Display study tip topics with links to guide pages.                                       | defines a topic array, loops through cards, and links items to `learning-guide.php?topic=`.                                             |
+| `learning-guide.php`             | Render a selected study guide with tips and summary content.                              | reads `$_GET["topic"]`, loads guide content from an array, and loops through tip items.                                                 |
+| `logout.php`                     | Clear the current session and redirect users to the login page.                           | calls `session_unset()`, `session_destroy()`, and sends a Location header.                                                              |
+| `duodash.css`                    | Style the dashboard, page layout, cards, and navigation.                                  | provides responsive UI styling for dashboards, forms, tables, and widgets.                                                              |
+| `loginpage/database.php`         | Connect to MySQL and ensure the `eduspark_db` database and `users` table exist.           | uses `mysqli_connect()`, `CREATE DATABASE IF NOT EXISTS`, and `CREATE TABLE IF NOT EXISTS`.                                             |
+| `loginpage/login.php`            | Render the user login form.                                                               | provides HTML email/password inputs and submits to `login_process.php`.                                                                 |
+| `loginpage/login_process.php`    | Authenticate users and start a session on successful login.                               | performs a prepared SELECT, checks `password_verify()`, and sets session variables.                                                     |
+| `loginpage/register.php`         | Render the account registration form.                                                     | provides full name, username, email, and password inputs and submits to `register_process.php`.                                         |
+| `loginpage/register_process.php` | Validate registration data and insert new users.                                          | checks duplicate username/email, hashes passwords with `password_hash()`, and inserts a new user record.                                |
+| `loginpage/style.css`            | Style the login and register pages.                                                       | defines form layout, input styling, and responsive page appearance.                                                                     |
+| `feedback and others/`           | Contains an alternate login/register flow, supporting files, and shared assets.           | includes a second database connection, style sheet, login/register pages, and related scripts for legacy or extended flows.            
+
