@@ -1,4 +1,45 @@
 <?php
+/**
+ * Displays the logged-in user's EduSpark account dashboard.
+ *
+ * This is a page-level controller, not a reusable function or class. It enforces
+ * authentication, loads the current account, calculates account-level summary
+ * metrics, builds a leaderboard from the users table, and renders the HTML
+ * dashboard for the browser.
+ *
+ * Expected behavior in this file:
+ * - Calls require_login() before reading user-specific data.
+ * - Reads the current user from current_user() and computes XP, level,
+ *   active-day counts, and metric totals from the database.
+ * - Builds a leaderboard by collecting each user's id, display name, and XP,
+ *   sorting descending by XP, and locating the current user's rank.
+ * - Fetches the three newest materials and renders a dashboard layout with
+ *   summary cards, feature links, a materials list, and a leaderboard.
+ *
+ * Parameters:
+ * This script takes no direct parameters. It relies on session state and on the
+ * application helpers defined in app.php.
+ *
+ * Return value:
+ * This script does not return a value. It renders HTML directly to the response
+ * stream and terminates with the page output.
+ *
+ * Important dependencies and limitations:
+ * - It requires app.php to define require_login(), current_user(), user_xp(),
+ *   db_value(), db_all(), render_nav(), render_flash(), h(), and first_initial().
+ * - It assumes the database tables users, materials, quiz_attempts,
+ *   practice_submissions, and feedback_messages exist and contain the expected
+ *   columns: id, user_id, created_at, fullname, username, title, description,
+ *   code, and so on.
+ * - If a helper or database query fails, the script will propagate the
+ *   exception/throw rather than handling it here.
+ * - The user rank is determined by the sorted leaderboard. If the current user
+ *   is not found in the users list, the rank remains at its initial value of 1.
+ * - The script renders static placeholder labels (for example, weekday bars in
+ *   the weekly chart) without calculating a real per-day progress history.
+ *
+ * @return void
+ */
 require_once __DIR__ . "/app.php";
 require_login();
 
