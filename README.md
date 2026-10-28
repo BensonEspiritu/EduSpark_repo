@@ -1,102 +1,161 @@
-# 📖 About
+# EduSpark
 
-EduSpark is a simple PHP learning dashboard built for XAMPP. It includes user authentication, course materials management, quizzes, practice exercises, study tips, and feedback submission.
+EduSpark is a PHP-based learning dashboard designed to support student study activities in a simple, organized web application. The project provides a login system, personalized dashboard, course material management, quizzes, practice exercises, study guides, and feedback submission features. It is built specifically for local development using XAMPP and a MySQL database.
 
-## 🔎 Overview
+## Description
 
-- `account-dashboard.php` — main logged-in dashboard with user stats, XP, progress, and navigation.
-- `app.php` — shared application helpers, authentication checks, database query wrappers, navigation rendering, and learning table initialization.
-- `contact-feedback.php` — feedback form page for logged-in users with saved messages.
-- `duodash.css` — dashboard layout and styling.
-- `learning-guide.php` — learning guide page.
-- `logout.php` — logs out the user and redirects to login.
-- `practice-exercises.php` — practice exercise submission page.
-- `quiz.php` — quiz question page and results recording.
-- `study_tips.php` — study tips page.
-- `subject-materials.php` — CRUD page for managing learning materials.
-- `loginpage/` — login and registration forms plus database bootstrap.
+EduSpark is intended to help learners manage their coursework and track academic progress in one place. Users can create accounts, sign in securely, explore learning materials, review study tips, complete quizzes, submit practice tasks, and communicate feedback to the system.
 
-## 💾 loginpage folder
+The application is designed as a lightweight educational platform for academic and demonstration purposes, with a focus on straightforward PHP development and database-backed workflows.
 
-- `login.php` — user login form.
-- `register.php` — new user registration form.
-- `login_process.php` — login request handler.
-- `register_process.php` — registration request handler.
-- `database.php` — database connection and user table bootstrap.
-- `style.css` — login/registration page styling.
-- `image.png`, `bgimage.png` — layout images used by login pages.
+## Features
 
-## 📄 Requirements
+- User registration and login
+- Personalized dashboard with learner progress summary
+- Course material management (create, view, update, and delete)
+- Quiz-based assessment and scoring
+- Practice exercise submission workflow
+- Study tips and learning guide pages
+- Feedback form for user communication
+- Session-based access control for authenticated users
+- Automatic database and table initialization for local setup
 
-- PHP 7.x or later
+## Technologies Used
+
+- PHP 7+ / PHP
 - MySQL / MariaDB
-- XAMPP or equivalent local web server
+- XAMPP (Apache + MySQL)
+- HTML5
+- CSS3
+- Prepared SQL statements for database interaction
+- Server-side session management
 
-## 🛠 Setup
+## Installation and Setup
 
-1. Copy the `EduSpark` folder into your web root. For XAMPP the path is typically `C:\xampp\htdocs\EduSpark`.
-2. Start Apache and MySQL from the XAMPP control panel.
-3. Open `http://localhost/EduSpark/loginpage/login.php` in your browser.
-4. Register a new user or log in with an existing account.
+1. Install XAMPP or a similar local PHP + MySQL stack.
+2. Clone or download this repository to your local machine.
+3. Copy the `EduSpark` folder into your web server directory. For XAMPP, this is usually:
+   - Windows: `C:\xampp\htdocs\EduSpark`
+   - macOS/Linux: `/Applications/XAMPP/xamppfiles/htdocs/EduSpark`
+4. Start Apache and MySQL from the XAMPP control panel.
+5. Ensure the database settings in `EduSpark/loginpage/database.php` match your local MySQL setup.
+6. Open your browser and navigate to the login page.
 
-## ⚙️ Database
+## How to Run the Program
 
-- `loginpage/database.php` creates the `eduspark_db` database and the `users` table automatically.
-- `app.php` contains `ensure_learning_tables()` which creates the following tables if they do not exist:
-  - `materials`
-  - `quiz_questions`
-  - `quiz_attempts`
-  - `practice_exercises`
-  - `practice_submissions`
-  - `feedback_messages`
+Once the server is running, access the application in the browser at:
 
-## 🤝 Usage
+http://localhost/EduSpark/loginpage/login.php
 
-- Log in at `loginpage/login.php`.
-- Access the dashboard at `account-dashboard.php`.
-- Add and manage course materials using `subject-materials.php`.
-- Take quizzes on `quiz.php`.
-- Submit written practice answers on `practice-exercises.php`.
-- Send feedback through `contact-feedback.php`.
-- View study tips and guides via `study_tips.php` and `learning-guide.php`.
+From there:
 
-## 📝 Notes
+- Register a new account, or
+- Log in with an existing user account
 
-- The app stores user login data and learning activity in MySQL.
-- If you move the folder, update PHP includes accordingly.
-- The project is designed for local development and is not production hardened.
+After successful login, you will be redirected to the main dashboard where you can access study tools and learning modules.
 
-## 👥 Developers
+## Usage Example
 
-- Benson Espiritu
-- Jao, John Michael
-- Gray, Henrich
-- Ahmed, Weseem
+A typical user workflow:
 
-## 📄 License
-This project was developed for academic purposes.
+1. Open the login page.
+2. Register an account with a name, username, email, and password.
+3. Log in to the system.
+4. View the dashboard summary and academic progress.
+5. Open the materials section to add or manage learning content.
+6. Take a quiz to receive a score.
+7. Submit practice answers for assigned exercises.
+8. Read study guides and tips.
+9. Send feedback through the contact form.
 
+Example learning flow:
 
+- Log in
+- Open `subject-materials.php`
+- Add a material titled "Application Development"
+- Go to `quiz.php` and complete the quiz
+- Submit a practice answer in `practice-exercises.php`
+- Review results from the dashboard
 
-## File reference
+## Input and Output Information
 
-| File                             | Purpose                                                                                   | Key features                                                                                                                            |
-| -------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `account-dashboard.php`          | Display the main logged-in dashboard with user stats, progress, and navigation.           | loads `app.php`, calls `require_login()`, fetches totals with `db_value()` and `db_all()`, and renders the sidebar with `render_nav()`. |
-| `app.php`                        | Provide shared authentication helpers, database utility functions, and layout components. | defines `db_execute()`, `db_all()`, `db_one()`, `flash()`, `current_user()`, and `ensure_learning_tables()` for app bootstrap.          |
-| `contact-feedback.php`           | Allow users to submit feedback and view recent messages.                                  | validates POST input, inserts into `feedback_messages`, and selects recent entries with `db_all()`.                                     |
-| `subject-materials.php`          | Manage learning materials with create, read, update, and delete actions.                  | routes `$_POST["action"]`, uses prepared SQL for insert/update/delete, and renders editable material cards.                             |
-| `quiz.php`                       | Show quiz questions, submit answers, and record quiz attempts.                            | loops question records, checks `correct_option`, inserts quiz results, and displays recent attempts.                                    |
-| `practice-exercises.php`         | Present practice exercises and save user answer submissions.                              | inserts new submissions into `practice_submissions`, loads exercises, and displays recent answers with a JOIN.                          |
-| `study_tips.php`                 | Display study tip topics with links to guide pages.                                       | defines a topic array, loops through cards, and links items to `learning-guide.php?topic=`.                                             |
-| `learning-guide.php`             | Render a selected study guide with tips and summary content.                              | reads `$_GET["topic"]`, loads guide content from an array, and loops through tip items.                                                 |
-| `logout.php`                     | Clear the current session and redirect users to the login page.                           | calls `session_unset()`, `session_destroy()`, and sends a Location header.                                                              |
-| `duodash.css`                    | Style the dashboard, page layout, cards, and navigation.                                  | provides responsive UI styling for dashboards, forms, tables, and widgets.                                                              |
-| `loginpage/database.php`         | Connect to MySQL and ensure the `eduspark_db` database and `users` table exist.           | uses `mysqli_connect()`, `CREATE DATABASE IF NOT EXISTS`, and `CREATE TABLE IF NOT EXISTS`.                                             |
-| `loginpage/login.php`            | Render the user login form.                                                               | provides HTML email/password inputs and submits to `login_process.php`.                                                                 |
-| `loginpage/login_process.php`    | Authenticate users and start a session on successful login.                               | performs a prepared SELECT, checks `password_verify()`, and sets session variables.                                                     |
-| `loginpage/register.php`         | Render the account registration form.                                                     | provides full name, username, email, and password inputs and submits to `register_process.php`.                                         |
-| `loginpage/register_process.php` | Validate registration data and insert new users.                                          | checks duplicate username/email, hashes passwords with `password_hash()`, and inserts a new user record.                                |
-| `loginpage/style.css`            | Style the login and register pages.                                                       | defines form layout, input styling, and responsive page appearance.                                                                     |
-| `feedback and others/`           | Contains an alternate login/register flow, supporting files, and shared assets.           | includes a second database connection, style sheet, login/register pages, and related scripts for legacy or extended flows.            
+### Inputs
 
+The application collects and processes the following user inputs:
+
+- Full name, username, email, and password during registration
+- Login credentials during sign-in
+- Quiz answers and selected multiple-choice options
+- Practice exercise text submissions
+- Course or subject material details
+- Feedback categories, subject, and message content
+
+### Outputs
+
+The application produces the following outputs:
+
+- User dashboard summary and progress statistics
+- Quiz scores and result tracking
+- Stored learning materials and explanations
+- Practice submission records
+- Study guide content and learning tips
+- Feedback messages saved in the database
+- Session-based navigation and authentication feedback
+
+## Project Structure
+
+```text
+EduSpark_repo/
+├── README.md
+├── EduSpark/
+│   ├── account-dashboard.php
+│   ├── app.php
+│   ├── contact-feedback.php
+│   ├── duodash.css
+│   ├── learning-guide.php
+│   ├── logout.php
+│   ├── practice-exercises.php
+│   ├── quiz.php
+│   ├── study_tips.php
+│   ├── subject-materials.php
+│   ├── loginpage/
+│   │   ├── database.php
+│   │   ├── login.php
+│   │   ├── login_process.php
+│   │   ├── register.php
+│   │   ├── register_process.php
+│   │   ├── style.css
+│   │   ├── image.png
+│   │   └── bgimage.png
+│   └── feedback and others/
+│       └── supporting project files and alternate assets
+└──
+```
+
+## Limitations
+
+- This project is built for local development and not intended for production deployment without additional security hardening.
+- Authentication is basic and does not include advanced user role management.
+- There is no email verification or password reset flow.
+- The interface is functional but relatively simple and does not include modern UI frameworks.
+- Database schema and logic are directly tied to local XAMPP/MySQL usage.
+- There is limited validation and sanitization beyond basic form checks.
+
+## Possible Future Improvements
+
+- Add admin and student roles with different permissions
+- Implement stronger security measures, including password hashing validation and CSRF protection
+- Add search and filtering for materials and submissions
+- Improve analytics and reporting for learner performance
+- Add a responsive modern UI with frameworks such as Bootstrap or Tailwind CSS
+- Support file uploads for course content and assignments
+- Integrate a REST API for mobile or web client access
+- Add data export features for quiz scores and user activity
+- Improve error handling and user-friendly validation messages
+- Prepare the application for deployment on a cloud hosting environment
+
+## Notes
+
+This project automatically creates the required database and learning tables when initialized through the local PHP server. The system stores user data and educational activity in MySQL, making it suitable for academic demonstrations and local learning projects.
+
+This project was developed for educational purposes.
